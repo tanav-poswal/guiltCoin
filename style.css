@@ -1,0 +1,191 @@
+.dp {
+  width: 10rem;
+  height: 10rem;
+  background-position: center;
+  border-radius: 5rem;
+  position: absolute;
+}
+
+.blurr {
+  position: relative;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 6rem;
+  opacity: 0.8;
+  top: -1rem;
+  filter: blur(40px);
+}
+
+.home {
+  padding-top: 5rem;
+  display: flex;
+  align-items: bottom;
+  justify-content: center;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.usrname {
+  color: #444444;
+  font-style: italic;
+  font-weight: lighter;
+}
+
+.money {
+  font-size: 5rem;
+  color: #5ba945;
+  user-select: none;
+  font-weight: bolder;
+}
+body {
+  background-color: #eee;
+}
+
+.card {
+  width: 340px;
+  border-radius: 35px;
+  background-color: #fff;
+}
+
+.total-amount {
+  font-size: 22px;
+  font-weight: 700;
+  color: #383737;
+}
+
+.amount-container {
+  background-color: #e9eaeb;
+  padding: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 8px;
+}
+
+.amount-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: #673ab7;
+}
+
+.inp {
+  width: 3rem;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.dollar-sign {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+}
+
+.label-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #b2b2b2;
+}
+
+.credit-card-number {
+  width: 290px;
+  z-index: 28;
+  border: 2px solid #ced4da;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.credit-card-number:focus {
+  box-shadow: none;
+  border: 2px solid #673ab7;
+}
+
+.visa-icon {
+  position: relative;
+  top: 30px;
+  right: 13px;
+  z-index: 30;
+}
+
+.money-icon {
+  position: relative;
+  top: 35px;
+  right: 13px;
+  z-index: 30;
+}
+
+.expiry-class {
+  width: 120px;
+  border: 2px solid #ced4da;
+  font-weight: 600;
+  font-size: 12px;
+  height: 48px;
+}
+
+.expiry-class:focus {
+  box-shadow: none;
+  border: 2px solid #673ab7;
+}
+
+.cvv-class {
+  width: 120px;
+  border: 2px solid #ced4da;
+  font-weight: 600;
+  font-size: 12px;
+  height: 48px;
+}
+
+.cvv-class:focus {
+  box-shadow: none;
+  border: 2px solid #673ab7;
+}
+
+.payment-btn {
+  background-color: #673ab7;
+  padding: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 12px;
+}
+
+.payment-btn:hover {
+  color: white;
+}
+
+.paybtn {
+  background: #5ba945;
+}
+
+.cancel-btn {
+  background-color: #fff;
+  color: #b2b2b2;
+  padding: 0px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+.cancel-btn:hover {
+  border: 2px solid #b2b2b2;
+  color: #b2b2b2;
+}
+
+.cancel-btn:focus {
+  box-shadow: none;
+}
+
+.label-text-cc-number {
+  position: relative;
+  top: 4px;
+}
+
+.navbtn:hover{
+    background-color: #b2b2b2;
+}

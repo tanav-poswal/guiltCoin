@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>coin</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-firestore.js"></script>
+
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyAoMmha7TP6oE7QtjlRaf5ak46sVpE3dqU",
+        authDomain: "save-code-a578f.firebaseapp.com",
+        databaseURL: "https://save-code-a578f-default-rtdb.firebaseio.com",
+        projectId: "save-code-a578f",
+        storageBucket: "save-code-a578f.appspot.com",
+        messagingSenderId: "232404784280",
+        appId: "1:232404784280:web:29148ec10b41764f1f2ced",
+        measurementId: "G-KTVJ7S3E8B",
+      };
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <button
+      id="btnlogin"
+      class="btn btn-primary m-3"
+      aria-current="page"
+      onclick="auth.signInWithPopup(provider)"
+    >
+      Log in (google)
+    </button>
+    <section id="dashboard" hidden="true">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">coin</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <button class="navbtn mx-2 btn" aria-current="page" onclick="home()">
+                  Home
+                </button>
+              </li>
+              <li class="nav-item">
+                <button class="navbtn btn mx-2" onclick="withdrawal()">Withdrawal</button>
+              </li>
+              <li class="nav-item">
+                <button class="navbtn btn mx-2" aria-current="page" onclick="pay()">
+                  Pay
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  class="navbtn btn mx-2"
+                  aria-current="page"
+                  onclick="auth.signOut()"
+                >
+                  Log out
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <section id="home">
+        <div class="home">
+          <img id="dp" src="" class="blurr" />
+          <img id="dp2" src="" class="dp" />
+        </div>
+        <div class="profile">
+          <h3 id="usname" class="usrname">nul</h3>
+          <h4 id="uid"></h4>
+          <br />
+          <h1 id="paise" class="money"></h1>
+          <button class="btn btn-danger" onclick="moneyrefresh()">refresh</button>
+        </div>
+      </section>
+      <section id="pay" hidden="true">
+        <h1 class="display-1 text-center mt-5">pay someone</h1>
+        <div class="container mt-5 d-flex justify-content-center">
+          <div class="card shadow-lg p-4">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="total-amount">Total amount</h5>
+              <div class="amount-container">
+                <input class="inp amount-text" id="payam" type="number" value="10" />
+              </div>
+            </div>
+            <div class="pt-4">
+              <label class="d-flex justify-content-between">
+                <span class="label-text label-text-cc-number">Person ID</span
+                ><img
+                  src="https://img.icons8.com/cotton/50/000000/visa.png"
+                  width="30"
+                  class="visa-icon"
+              /></label>
+              <input
+                type="tel"
+                id="payid"
+                name="credit-number"
+                class="form-control credit-card-number"
+                maxlength="19"
+                placeholder="person id"
+              />
+            </div>
+            <div class="d-flex justify-content-between pt-5 align-items-center">
+              <button
+                type="button"
+                onclick="payy()"
+                class="btn payment-btn paybtn"
+              >
+                PAY
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="withdrawal" hidden="true">
+        <h1 class="display-1 text-center mt-5">
+          withdrawal this is in development
+        </h1>
+        <div class="container mt-5 d-flex justify-content-center">
+          <div class="card shadow-lg p-4">
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="total-amount">Total amount</h5>
+              <div class="amount-container">
+                <input class="inp amount-text" type="number" value="10" />
+              </div>
+            </div>
+            <div class="pt-4">
+              <label class="d-flex justify-content-between">
+                <span class="label-text label-text-cc-number">CARD NUMBER</span
+                ><img
+                  src="https://img.icons8.com/cotton/50/000000/visa.png"
+                  width="30"
+                  class="visa-icon"
+              /></label>
+              <input
+                type="number"
+                name="credit-number"
+                class="form-control credit-card-number"
+                maxlength="19"
+                placeholder="Card number"
+              />
+            </div>
+            <div class="d-flex justify-content-between pt-4">
+              <div>
+                <label><span class="label-text">EXPIRY</span> </label>
+                <input
+                  type="date"
+                  name="expiry-date"
+                  class="form-control expiry-class"
+                  placeholder="MM / YY"
+                />
+              </div>
+              <div>
+                <label><span class="label-text">CVV</span></label>
+                <input
+                  type="number"
+                  name="cvv-number"
+                  class="form-control cvv-class"
+                  maxlength="3"
+                  placeholder="CVV"
+                  pattern="\d*"
+                />
+              </div>
+            </div>
+            <div class="d-flex justify-content-between pt-5 align-items-center">
+              <button type="button" class="btn cancel-btn ml-3">Cancel</button>
+              <button type="button" class="btn payment-btn">
+                Withdraw securely
+              </button>
+            </div>
+          </div>
+        </div>
+        <br />
+        <p class="text-center text-muted ml-4 mb-3">
+          minimum withdrawal is 550
+        </p>
+      </section>
+    </section>
+  </body>
+</html>
